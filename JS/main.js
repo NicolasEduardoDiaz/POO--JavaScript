@@ -10,5 +10,20 @@ class persona {
     }
 }
 
-const persona1 = new persona("Nicolas", 18, "M");
-persona1.saludar(); 
+class estudiante extends persona{
+    constructor(nombre, edad, sexo, carrera){
+        super(nombre, edad, sexo);
+        this.carrera = carrera;
+    }
+
+    estudiar(){
+        console.log(`Estoy estudiando ${this.carrera}.`);
+    }
+}
+
+const persona1 = new persona("Nicolas", 18, "M")
+persona1.saludar();
+
+const estudiante1 = new estudiante("Nicolas", 18, "M", "Programacion");
+estudiante1.saludar(); 
+estudiante1.estudiar();
