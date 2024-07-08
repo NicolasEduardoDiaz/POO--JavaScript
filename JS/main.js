@@ -8,22 +8,35 @@ class persona {
     saludar(){
         console.log(`Hola, mi nombre es ${this.nombre}.`);
     }
+    static esMayorDeEdad(edad){
+        return edad >= 18;
+    }
 }
+
 
 class estudiante extends persona{
     constructor(nombre, edad, sexo, carrera){
         super(nombre, edad, sexo);
         this.carrera = carrera;
     }
-
+    
     estudiar(){
         console.log(`Estoy estudiando ${this.carrera}.`);
     }
 }
 
-const persona1 = new persona("Nicolas", 18, "M")
-persona1.saludar();
+const form = document.getElementById(`personaForm`);
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+})
 
-const estudiante1 = new estudiante("Nicolas", 18, "M", "Programacion");
-estudiante1.saludar(); 
-estudiante1.estudiar();
+const nombre = form.nombre.value;
+const edad = parseInt(form.edad.value);
+const sexo = form.sexo.value;
+const carrera = form.carrera.value;
+
+const estudiante = new estudiante(nombre, edad, sexo, carrera);
+
+estudiante.saludar();
+console.log(`Es mayor de edad? ${persona.esMayorDeEdad(edad)}`);
+estudiante.estudiar();
