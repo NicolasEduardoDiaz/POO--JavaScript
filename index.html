@@ -1,69 +1,83 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularios</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
     <script type="module" src="JS/main.js" defer></script>
     <style>
-        .hidden { display: none;}
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    <h1>Formularios</h1>
-
+    <h1>Formularios de Personas, Estudiantes, Animales y Perros</h1>
+    
+    <button id="showPersonasForm">Mostrar Formulario de Persona</button>
+    <button id="showEstudiantesForm">Mostrar Formulario de Estudiante</button>
+    <button id="showAnimalForm">Mostrar Formulario de Animal</button>
+    <button id="showPerroForm">Mostrar Formulario de Perro</button>
     
     <form id="personasForm" class="hidden">
-        <h2>Formulario de Personas</h2>
+        <h2>Formulario de Persona</h2>
         <label for="nombrePersona">Nombre:</label>
         <input type="text" id="nombrePersona" name="nombre" required><br><br>
 
         <label for="edadPersona">Edad:</label>
-        <input type="number" id="edadPersona" name="edad" required><br><br>
+        <input type="number" name="edad" id="edadPersona" required><br><br>
         
         <label for="sexoPersona">Sexo:</label>
-        <select id="sexoPersona" name="sexo" required>
+        <select name="sexo" id="sexoPersona" required>
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
         </select><br><br>
-        
+
         <button type="submit">Enviar</button>
     </form>
+
     <form id="estudianteForm" class="hidden">
-        <h2>Formulario de Estudiantes</h2>
+        <h2>Formulario de Estudiante</h2>
         <label for="nombreEstudiante">Nombre:</label>
         <input type="text" id="nombreEstudiante" name="nombre" required><br><br>
 
         <label for="edadEstudiante">Edad:</label>
-        <input type="number" id="edadEstudiante" name="edad" required><br><br>
-        
-        <label for="carreraEstudiante">Carrera:</label>
-        <input type="text" id="carreraEstudiante" name="carrera" required><br><br>
+        <input type="number" name="edad" id="edadEstudiante" required><br><br>
+
+        <label for="carrera">Carrera:</label>
+        <input type="text" id="carrera" name="carrera" required><br><br>
         
         <label for="sexoEstudiante">Sexo:</label>
-        <select id="sexoEstudiante" name="sexo" required>
+        <select name="sexo" id="sexoEstudiante" required>
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
         </select><br><br>
-        
+
         <button type="submit">Enviar</button>
     </form>
+
     <form id="animalForm" class="hidden">
-        <h2>Formulario de Animales</h2>
+        <h2>Formulario de Animal</h2>
         <label for="nombreAnimal">Nombre:</label>
-        <input type="text" name="nombre" id="nombreAnimal" required><br><br>
+        <input type="text" id="nombreAnimal" name="nombre" required><br><br>
 
         <label for="edadAnimal">Edad:</label>
         <input type="number" name="edad" id="edadAnimal" required><br><br>
 
-        <label for="hacerSonido">Sonido del Animal:</label>
-        <input type="text" name="sonido" id="sonidoAnimal" required><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <form id="perroForm" class="hidden">
+        <h2>Formulario de Perro</h2>
+        <label for="nombrePerro">Nombre:</label>
+        <input type="text" id="nombrePerro" name="nombre" required><br><br>
+
+        <label for="edadPerro">Edad:</label>
+        <input type="number" name="edad" id="edadPerro" required><br><br>
+
+        <label for="razaPerro">Raza:</label>
+        <input type="text" id="razaPerro" name="raza" required><br><br>
 
         <button type="submit">Enviar</button>
     </form>
-    
-    <button id="showPersonasForm">Personas</button>
-    <button id="showEstudiantesForm">Estudiantes</button>
-    <button id="showAnimalForm">Animales</button>
 </body>
 </html>
