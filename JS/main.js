@@ -25,21 +25,37 @@ class Estudiante extends Persona {
     }
 }
 
+class Animal {
+    constructor(nombre, edad, sonido){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sonido = sonido
+    }
+
+    presentar(){
+        alert(`El ${this.nombre} tiene ${this.edad} años y el puede ${this.sonido}`)
+    }
+}
+
 const showPersonasFormButton = document.getElementById('showPersonasForm');
 const showEstudiantesFormButton = document.getElementById('showEstudiantesForm');
+const showAnimalFormButton = document.getElementById('showAnimalForm');
 
 const personasForm = document.getElementById('personasForm');
 const estudianteForm = document.getElementById('estudianteForm');
+const animalForm = document.getElementById('animalForm');
 
 function showForm(formToShow) {
     personasForm.classList.add('hidden');
     estudianteForm.classList.add('hidden');
+    animalForm.classList.add('hidden')
     
     formToShow.classList.remove('hidden');
 }
 
 showPersonasFormButton.addEventListener('click', () => showForm(personasForm));
 showEstudiantesFormButton.addEventListener('click', () => showForm(estudianteForm));
+showAnimalFormButton.addEventListener('click', () => showForm(animalForm));
 
 // Formulario de personas
 personasForm.addEventListener('submit', function(event) {
@@ -67,4 +83,18 @@ estudianteForm.addEventListener('submit', function(event) {
     estudiante.saludar();
     console.log(`Es mayor de edad? ${Persona.esMayorDeEdad(edad)}`);
     estudiante.estudiar();
+});
+
+// Formulario de Animales
+
+animalForm.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombreAnimal').value;
+    const edad = parseInt(document.getElementById('edadAnimal').value);
+    const sonido = document.getElementById('sonidoAnimal').value;
+
+    const animal = new Animal(nombre, edad, sonido);
+    animal.presentar();
+    animal.presentar();
 });
