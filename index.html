@@ -58,11 +58,17 @@
 
     <form id="animalForm" class="hidden">
         <h2>Formulario de Animal</h2>
+        <label for="tipoAnimal">Que animal es?:</label>
+        <input type="text" id="typeAnimal" name="tipo" required><br><br>
+
         <label for="nombreAnimal">Nombre:</label>
         <input type="text" id="nombreAnimal" name="nombre" required><br><br>
 
         <label for="edadAnimal">Edad:</label>
         <input type="number" name="edad" id="edadAnimal" required><br><br>
+
+        <label for="sonidoAnimal">Que sonido puede hacer?:</label>
+        <input type="text" id="sonidoAnimal" name="sonido" required><br><br>
 
         <button type="submit">Enviar</button>
     </form>
@@ -82,11 +88,14 @@
     </form>
     <form id="figuraForm" class="hidden">
         <h2>Formulario de Figuras</h2>
+        <label for="tipoFigura">Que figura es?:</label>
+        <input type="text" id="tipoFigura" name="tipo" required><br><br>
+
         <label for="colorFigura">Color:</label>
         <input type="text" id="colorFigura" name="color"><br><br>
 
         <label for="areaFigura">Area:</label>
-        <input type="number" name="area" id="areaFigura"><br><br>
+        <input type="number" name="area" id="areaFigura" required><br><br>
 
         <button type="submit">Enviar</button>
     </form>

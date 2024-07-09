@@ -26,19 +26,25 @@ class Estudiante extends Persona {
 }
 
 class Animal {
-    constructor(nombre, edad) {
+    constructor(tipo, nombre, edad, sonido) {
+        this.tipo = tipo;
         this.nombre = nombre;
         this.edad = edad;
+        this.sonido = sonido;
+    }
+
+    presentacion() {
+        alert(`El es un ${this.tipo} y se llama ${this.nombre}, el tiene ${this.edad} años`);
     }
 
     hacerSonido() {
-        alert(`${this.nombre} hace un sonido.`);
+        alert(`${this.nombre} puede ${this.sonido}.`);
     }
 }
 
 class Perro extends Animal {
     constructor(nombre, edad, raza) {
-        super(nombre, edad);
+        super("perro", nombre, edad, "ladrar");
         this.raza = raza;
     }
 
@@ -48,13 +54,14 @@ class Perro extends Animal {
 }
 
 class Figura {
-    constructor(color, area){
+    constructor(tipo, color, area) {
+        this.tipo = tipo;
         this.color = color;
         this.area = area;
     }
 
-    calcularArea(){
-        alert(`La figura de color ${this.color} tiene un area de ${this.area} m2`)
+    calcularArea() {
+        alert(`El ${this.tipo} es de color ${this.color} y tiene un área de ${this.area} m2`);
     }
 }
 
@@ -84,7 +91,7 @@ showPersonasFormButton.addEventListener('click', () => showForm(personasForm));
 showEstudiantesFormButton.addEventListener('click', () => showForm(estudianteForm));
 showAnimalFormButton.addEventListener('click', () => showForm(animalForm));
 showPerroFormButton.addEventListener('click', () => showForm(perroForm));
-showFiguraFormButton.addEventListener('click', ()=> showForm(figuraForm));
+showFiguraFormButton.addEventListener('click', () => showForm(figuraForm));
 
 // Formulario de personas
 personasForm.addEventListener('submit', function(event) {
@@ -118,10 +125,13 @@ estudianteForm.addEventListener('submit', function(event) {
 animalForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    const tipo = document.getElementById('typeAnimal').value;
     const nombre = document.getElementById('nombreAnimal').value;
     const edad = parseInt(document.getElementById('edadAnimal').value);
+    const sonido = document.getElementById('sonidoAnimal').value;
 
-    const animal = new Animal(nombre, edad);
+    const animal = new Animal(tipo, nombre, edad, sonido);
+    animal.presentacion();
     animal.hacerSonido();
 });
 
@@ -139,12 +149,13 @@ perroForm.addEventListener('submit', function(event) {
 });
 
 // Formulario de figuras
-figuraForm.addEventListener('submit', function(event){
+figuraForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
+    const tipo = document.getElementById('tipoFigura').value;
     const color = document.getElementById('colorFigura').value;
     const area = parseInt(document.getElementById('areaFigura').value);
 
-    const figura = new Figura(color, area);
+    const figura = new Figura(tipo, color, area);
     figura.calcularArea();
-})
+});
