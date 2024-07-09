@@ -6,7 +6,7 @@ class Persona {
     }
 
     saludar() {
-        console.log(`Hola, mi nombre es ${this.nombre}.`);
+        alert(`Hola, mi nombre es ${this.nombre}.`);
     }
 
     static esMayorDeEdad(edad) {
@@ -21,26 +21,50 @@ class Estudiante extends Persona {
     }
 
     estudiar() {
-        console.log(`Estoy estudiando ${this.carrera}.`);
+        alert(`Estoy estudiando ${this.carrera}.`);
     }
 }
 
-// Obtener el formulario y escuchar el evento de submit
-const form = document.getElementById('estudianteForm');
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar el envío del formulario por defecto
+const showPersonasFormButton = document.getElementById('showPersonasForm');
+const showEstudiantesFormButton = document.getElementById('showEstudiantesForm');
 
-    // Obtener los valores del formulario
-    const nombre = form.nombre.value;
-    const edad = parseInt(form.edad.value);
-    const sexo = form.sexo.value;
-    const carrera = form.carrera.value;
+const personasForm = document.getElementById('personasForm');
+const estudianteForm = document.getElementById('estudianteForm');
 
-    // Crear una instancia de Estudiante con los datos del formulario
+function showForm(formToShow) {
+    personasForm.classList.add('hidden');
+    estudianteForm.classList.add('hidden');
+    
+    formToShow.classList.remove('hidden');
+}
+
+showPersonasFormButton.addEventListener('click', () => showForm(personasForm));
+showEstudiantesFormButton.addEventListener('click', () => showForm(estudianteForm));
+
+// Formulario de personas
+personasForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombrePersona').value;
+    const edad = parseInt(document.getElementById('edadPersona').value);
+    const sexo = document.getElementById('sexoPersona').value;
+
+    const persona = new Persona(nombre, edad, sexo);
+    persona.saludar();
+    console.log(`Es mayor de edad? ${Persona.esMayorDeEdad(edad)}`);
+});
+
+// Formulario de estudiantes
+estudianteForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombreEstudiante').value;
+    const edad = parseInt(document.getElementById('edadEstudiante').value);
+    const sexo = document.getElementById('sexoEstudiante').value;
+    const carrera = document.getElementById('carreraEstudiante').value;
+
     const estudiante = new Estudiante(nombre, edad, sexo, carrera);
-
-    // Mostrar mensajes en la consola
     estudiante.saludar();
-    console.log(`¿Es mayor de edad? ${Persona.esMayorDeEdad(edad)}`);
+    console.log(`Es mayor de edad? ${Persona.esMayorDeEdad(edad)}`);
     estudiante.estudiar();
 });
