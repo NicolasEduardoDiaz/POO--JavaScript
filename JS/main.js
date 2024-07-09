@@ -47,21 +47,35 @@ class Perro extends Animal {
     }
 }
 
+class Figura {
+    constructor(color, area){
+        this.color = color;
+        this.area = area;
+    }
+
+    calcularArea(){
+        alert(`La figura de color ${this.color} tiene un area de ${this.area} m2`)
+    }
+}
+
 const showPersonasFormButton = document.getElementById('showPersonasForm');
 const showEstudiantesFormButton = document.getElementById('showEstudiantesForm');
 const showAnimalFormButton = document.getElementById('showAnimalForm');
 const showPerroFormButton = document.getElementById('showPerroForm');
+const showFiguraFormButton = document.getElementById('showFiguraForm');
 
 const personasForm = document.getElementById('personasForm');
 const estudianteForm = document.getElementById('estudianteForm');
 const animalForm = document.getElementById('animalForm');
 const perroForm = document.getElementById('perroForm');
+const figuraForm = document.getElementById('figuraForm');
 
 function showForm(formToShow) {
     personasForm.classList.add('hidden');
     estudianteForm.classList.add('hidden');
     animalForm.classList.add('hidden');
     perroForm.classList.add('hidden');
+    figuraForm.classList.add('hidden');
 
     formToShow.classList.remove('hidden');
 }
@@ -70,6 +84,7 @@ showPersonasFormButton.addEventListener('click', () => showForm(personasForm));
 showEstudiantesFormButton.addEventListener('click', () => showForm(estudianteForm));
 showAnimalFormButton.addEventListener('click', () => showForm(animalForm));
 showPerroFormButton.addEventListener('click', () => showForm(perroForm));
+showFiguraFormButton.addEventListener('click', ()=> showForm(figuraForm));
 
 // Formulario de personas
 personasForm.addEventListener('submit', function(event) {
@@ -123,3 +138,13 @@ perroForm.addEventListener('submit', function(event) {
     perro.moverCola();
 });
 
+// Formulario de figuras
+figuraForm.addEventListener('submit', function(event){
+    event.preventDefault();
+
+    const color = document.getElementById('colorFigura').value;
+    const area = parseInt(document.getElementById('areaFigura').value);
+
+    const figura = new Figura(color, area);
+    figura.calcularArea();
+})

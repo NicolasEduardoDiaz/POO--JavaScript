@@ -11,12 +11,13 @@
     </style>
 </head>
 <body>
-    <h1>Formularios de Personas, Estudiantes, Animales y Perros</h1>
+    <h1>Formularios</h1>
     
-    <button id="showPersonasForm">Mostrar Formulario de Persona</button>
-    <button id="showEstudiantesForm">Mostrar Formulario de Estudiante</button>
-    <button id="showAnimalForm">Mostrar Formulario de Animal</button>
-    <button id="showPerroForm">Mostrar Formulario de Perro</button>
+    <button id="showPersonasForm">Personas</button>
+    <button id="showEstudiantesForm">Estudiantes</button>
+    <button id="showAnimalForm">Animales</button>
+    <button id="showPerroForm">Perros</button>
+    <button id="showFiguraForm">Figuras</button>
     
     <form id="personasForm" class="hidden">
         <h2>Formulario de Persona</h2>
@@ -76,6 +77,16 @@
 
         <label for="razaPerro">Raza:</label>
         <input type="text" id="razaPerro" name="raza" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <form id="figuraForm" class="hidden">
+        <h2>Formulario de Figuras</h2>
+        <label for="colorFigura">Color:</label>
+        <input type="text" id="colorFigura" name="color"><br><br>
+
+        <label for="areaFigura">Area:</label>
+        <input type="number" name="area" id="areaFigura"><br><br>
 
         <button type="submit">Enviar</button>
     </form>
